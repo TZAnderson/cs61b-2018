@@ -14,7 +14,7 @@ public class ArrayDeque<T> {
         nextLast = 1;
     }
 
-    public void resize(int capacity) {
+    private void resize(int capacity) {
         T[] newItems = (T[]) new Object[capacity];
         for (int i = 0; i < size; i++) {
             newItems[i] = get(i);
