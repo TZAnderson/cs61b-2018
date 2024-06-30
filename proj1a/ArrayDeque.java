@@ -1,10 +1,11 @@
 public class ArrayDeque<T> {
-    private T[] items;
-    private int size;
-    private int nextFirst;
-    private int nextLast;
-    private static final int INITIAL_CAPACITY = 8;
-    private static final double MIN_USAGE_FACTOR = 0.25;
+    public T[] items;
+
+    public int size;
+    public int nextFirst;
+    public int nextLast;
+    public static final int INITIAL_CAPACITY = 8;
+    public static final double MIN_USAGE_FACTOR = 0.25;
 
     public ArrayDeque() {
         items = (T[]) new Object[INITIAL_CAPACITY];
@@ -13,7 +14,7 @@ public class ArrayDeque<T> {
         nextLast = 1;
     }
 
-    private void resize(int capacity) {
+    public void resize(int capacity) {
         T[] newItems = (T[]) new Object[capacity];
         for (int i = 0; i < size; i++) {
             newItems[i] = get(i);
