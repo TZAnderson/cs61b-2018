@@ -1,29 +1,26 @@
 public class LinkedListDeque<T>  {
-    public Node firstSentinel;
-    public Node lastSentinel;
-    public int size;
+    private Node firstSentinel;
+    private Node lastSentinel;
+    private int size;
 
-    public class Node {
-        public Node prev;
-        public T item;
-        public Node next;
+    private class Node {
+        private Node prev;
+        private T item;
+        private Node next;
 
         private Node(Node prev, T item, Node next) {
             this.item = item;
             this.prev = prev;
             this.next = next;
         }
-     }
+    }
     public LinkedListDeque() {
         firstSentinel = new Node(null, null, null);
         lastSentinel = new Node(firstSentinel, null, null);
         firstSentinel.next = lastSentinel;
         size = 0;
     }
-    public LinkedListDeque(T item) {
-        this();
-        addLast(item);
-    }
+
     /*
     [ before ]
     firstSentinel <-> lastSentinel
