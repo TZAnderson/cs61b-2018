@@ -97,10 +97,13 @@ public class LinkedListDeque<T>  {
         if (index < 0 || index >= size) {
             return null;
         }
-        Node current = firstSentinel.next;
         if (index == 0) {
-            return current.item;
+            return firstSentinel.next.item;
         }
+        LinkedListDeque rest = new LinkedListDeque();
+        rest.firstSentinel.next = this.firstSentinel.next.next;
+        rest.lastSentinel = this.lastSentinel;
+        rest.size = this.size - 1;
         return getRecursive(index - 1);
     }
     public LinkedListDeque(LinkedListDeque other) {
