@@ -103,7 +103,7 @@ public class LinkedListDeque<T>  {
         }
         return getRecursive(index - 1);
     }
-    public LinkedListDeque(LinkedListDeque<T> other) {
+    public LinkedListDeque(LinkedListDeque other) {
         firstSentinel = new Node(null, null, null);
         lastSentinel = new Node(firstSentinel, null, null);
         firstSentinel.next = lastSentinel;
