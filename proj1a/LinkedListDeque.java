@@ -47,10 +47,7 @@ public class LinkedListDeque<T>  {
     }
 
     public boolean isEmpty() {
-        if (size == 0) {
-            return true;
-        }
-        return false;
+        return size == 0;
     }
     public int size() {
         return size;
@@ -94,25 +91,15 @@ public class LinkedListDeque<T>  {
         return current.item;
     }
     public T getRecursive(int index) {
-        if (index < 0 || index >= size) {
+        return getRecursiveHelper(index, firstSentinel.next);
+    }
+    private T getRecursiveHelper(int index, Node current) {
+        if (index < 0 || current == lastSentinel) {
             return null;
         }
         if (index == 0) {
-            return firstSentinel.next.item;
+            return current.item;
         }
-        LinkedListDeque rest = new LinkedListDeque();
-        rest.firstSentinel.next = this.firstSentinel.next.next;
-        rest.lastSentinel = this.lastSentinel;
-        rest.size = this.size - 1;
-        return getRecursive(index - 1);
-    }
-    public LinkedListDeque(LinkedListDeque other) {
-        firstSentinel = new Node(null, null, null);
-        lastSentinel = new Node(firstSentinel, null, null);
-        firstSentinel.next = lastSentinel;
-        size = 0;
-        for (int i = 0; i < other.size(); i++) {
-            addLast((T) other.get(i));
-        }
+        return getRecursiveHelper(index - 1, current.next);
     }
 }
