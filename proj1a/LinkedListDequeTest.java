@@ -8,6 +8,7 @@ public class LinkedListDequeTest {
 		}
 		return true;
 	}
+    
 	/* Utility method for printing out empty checks. */
 	public static boolean checkSize(int expected, int actual) {
 		if (expected != actual) {
